@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+		
+		<bean id="rHelper" class="com.abhi.samples.SpringDemo.setterdi.ReportHelper">
+			<!-- <constructor-arg>
+				<ref bean="htmlReport" />
+			</constructor-arg> -->
+			
+			 <property name="reportGenerator" ref="pdfReport"/> 
+		</bean>
+		<bean id="pdfReport" class="com.abhi.samples.SpringDemo.setterdi.PDFReportGenerator" />
+		<bean id="htmlReport" class="com.abhi.samples.SpringDemo.setterdi.HTMLReportGenerator" />
+		
+		<bean id="cust" class="com.abhi.samples.SpringDemo.constructordi.Customer">
+			<constructor-arg>
+				<value>Roy</value>
+			</constructor-arg>
+			<constructor-arg>
+				<value>30</value>
+			</constructor-arg>
+			<constructor-arg>
+				<ref bean="addr"></ref>
+			</constructor-arg>
+		</bean>
+		<bean id="addr" class="com.abhi.samples.SpringDemo.constructordi.Address">
+			<constructor-arg>
+				<value>51 South Avenue</value>
+			</constructor-arg>	
+			<constructor-arg>
+				<value>Wellington</value>
+			</constructor-arg>	
+			<constructor-arg>
+				<value>New Zealand</value>
+			</constructor-arg>	
+		</bean>
+	
+</beans>
